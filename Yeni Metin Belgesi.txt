@@ -1,0 +1,22 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+
+driver = webdriver.Chrome()
+
+url = "https://web.bip.com/chat"
+
+driver.get(url)
+time.sleep(10)
+search = driver.find_element_by_xpath("/html/body/md-content/ui-view/div/ui-view/chat/div/div[1]/chat-contact-list/md-content/div[3]/div/div/div[2]/div/md-list-item/div/button")
+time.sleep(2)
+search.send_keys(Keys.ENTER)
+time.sleep(2)
+
+while True:
+    search2 = driver.find_element_by_xpath("/html/body/md-content/ui-view/div/ui-view/chat/div/div[2]/div[2]/conversation/div/editor/div/div/div[2]/div")
+    time.sleep(2)
+    search2.send_keys("text")
+    time.sleep(1)
+    search2.send_keys(Keys.ENTER)
+    
